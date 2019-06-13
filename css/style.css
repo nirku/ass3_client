@@ -1,0 +1,84 @@
+html,body{
+    height: 100%;
+}
+
+header{
+    height:10%;
+}
+
+#intro {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: url(https://www.ynetnews.com/PicServer5/2017/04/04/7697340/76973340100084640360no.jpg) center center no-repeat;
+}
+
+.greetinguser{
+    color: white;
+}
+
+.seperateDiv { padding-top: 30px; margin-top:30px;}
+
+.login {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    }
+    .account-login {
+    width: 500px;
+    }
+    .form-control:focus {
+    box-shadow: none;
+    }
+
+    .login p a {
+    padding-left:7px;
+    }
+    .login p{
+        color:white;
+    }
+    .account-login h1 {
+    font-size: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    }
+    .login-form input {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #a39e9e;
+    padding: 0;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    box-shadow: none;
+    height: 40px;
+    border-radius: 0px;
+    }
+    .login-form {
+    float: left;
+    width: 100%;
+    padding: 40px;
+    border-radius: 5px;
+    }
+    .btn:hover{
+        color: #fff;
+        opacity: 0.8;
+    }
+    p {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    }
+    @media (max-width: 767px){
+    .account-login {
+        width: 90%;
+        }
+    }

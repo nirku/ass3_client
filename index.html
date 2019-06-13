@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tel-Aviv POI</title>
+  <!-- Vendor CSS-->
+  <link href="node_modules/select2/dist/css/select2.min.css" rel="stylesheet" media="all">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Changed CSS by ng-view-->
+  <link rel="stylesheet" ng-href="{{css}}">
+</head>
+
+<body ng-app="POIapp" ng-controller="indexController">
+  <!--Main Navigation-->
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
+      <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Navbar</a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#!home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!about">About</a>
+            </li>
+          </ul>
+          <!-- Links -->
+          <div class="greetinguser my-0">
+            <label class="mr-sm-2">Hello Guest</label>
+          </div>
+        </div>
+        <!-- Collapsible content -->
+      </div>
+    </nav>
+  </header>
+  <!--/.Navbar-->
+  <!--Main Navigation-->
+  <!--Main layout-->
+  <div class="container">
+    <div class='text-center' ng-view>
+    </div>
+  </div>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer>
+
+  </footer>
+  <!--Footer-->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="node_modules/angular-css/angular-css.min.js"></script>
+  <script src="node_modules/select2/dist/js/select2.min.js"></script>
+  <script src="app.js"></script>
+
+  <!--Controllers-->
+  <script src="indexController.js"></script>
+  <script src="components/loginController.js"></script>
+  <script src="components/registerController.js"></script>
+
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>
