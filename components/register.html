@@ -4,49 +4,94 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Registration Info</h2>
-                <form method="POST">
+                <form role="form" name="form" id="userForm" ng-submit="submitForm()">
                     <div class="input-group">
-                        <input class="input--style-1" type="text" placeholder="Username" name="username">
+                        <input ng-model="userData.username" pattern="[A-Za-z]{3,8}" title="Only alphabetic letters, and at least 3 to 8 characters" class="input--style-1" type="text" id="username" placeholder="Username" name="username"
+                            required>
                     </div>
                     <div class="input-group">
-                        <input class="input--style-1" type="password" placeholder="Password" name="password">
+                        <input ng-model="userData.password" pattern="^(?=.*[a-zA-Z])(?=\w*[0-9])\w{5,10}$" title="Must contain at least one number and one letter, and at least 5 to 10 characters (special characters not allowed)" class="input--style-1" type="password" placeholder="Password" name="password" required>
                     </div>
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="First Name" name="fname">
-                                </div>
+                                <input ng-model="userData.firstname" class="input--style-1" type="text" placeholder="First Name" name="fname"
+                                    required>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="input-group">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="Last Name" name="lname">
+                                <input ng-model="userData.lastname" class="input--style-1" type="text" placeholder="Last Name" name="lname" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <input ng-model="userData.city" class="input--style-1" type="text" placeholder="City" name="city" required>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple">
+                                    <select ng-model="userData.country" name="countries" required>
+                                        <option></option>
+                                        <option ng-repeat="country in countries" value="{{ country.Name[0] }}">
+                                            {{ country.Name[0] }}
+                                        </option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="input-group">
+                        <input ng-model="userData.email" class="input--style-1" type="email" placeholder="Email" name="email" required>
+                    </div>
+                    <div class="input-group">
                         <div class="rs-select2 js-select-simple select--no-search">
-                            <select name="class">
-                                <option disabled="disabled" selected="selected">Country</option>
-                                <option>Class 1</option>
-                                <option>Class 2</option>
-                                <option>Class 3</option>
+                            <select ng-model="userData.questions[0]" name="question1" required>
+                                <option></option>
+                                <option ng-repeat="question in questions" value="{{ question.id }}">
+                                    {{ question.question }}?
+                                </option>
                             </select>
                             <div class="select-dropdown"></div>
                         </div>
                     </div>
-                    <div class="row row-space">
-                        <div class="col-2">
-                            <div class="input-group">
-                                <input class="input--style-1" type="text" placeholder="Email" name="email">
-                            </div>
+
+                    <div class="input-group">
+                        <input ng-model="userData.answers[0]" class="input--style-1" type="text" placeholder="Answer1" name="answer1" required>
+                    </div>
+                    <div class="input-group">
+                        <div class="rs-select2 js-select-simple select--no-search">
+                            <select ng-model="userData.questions[1]" name="question2" required>
+                                <option></option>
+                                <option ng-repeat="question in questions" value="{{ question.id }}">
+                                    {{ question.question }}?
+                                </option>
+                            </select>
+                            <div class="select-dropdown"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group select--no-search">
+                        <input ng-model="userData.answers[1]" class="input--style-1" type="text" placeholder="Answer2" name="answer2" required>
+                    </div>
+                    <div class="input-group">
+                        <div class="rs-select2">
+                            <select ng-model="userData.categories" class="js-example-basic-multiple" name="categories"
+                                multiple="multiple" style="width: 100%" required>
+                                <option></option>
+                                <option ng-repeat="category in categories" value="{{ category }}">
+                                    {{ category }}
+                                </option>
+                            </select>
+                            <div class="select-dropdown"></div>
                         </div>
                     </div>
                     <div class="p-t-20">
-                        <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                        <input class="btn btn--radius btn--green" type="submit">Submit</input>
                     </div>
                 </form>
             </div>
