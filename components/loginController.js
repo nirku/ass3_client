@@ -1,9 +1,8 @@
 angular.module('POIapp')
-    .controller('loginController', ['$document', '$location', '$scope', '$http', '$uibModal', '$window', 'poiInfoService', '$rootScope', function ($document, $location, $scope, $http, $uibModal, $window, poiInfoService, $rootScope) {
+    .controller('loginController', ['$location', '$scope', '$http', '$window', 'poiInfoService', '$rootScope', function ($location, $scope, $http, $window, poiInfoService, $rootScope) {
         let serverUrl = 'http://localhost:3000/'
         self = this;
         let rank = 0;
-        poiInfoService.reterivePOI(1);
 
         $http({
             method: 'GET',
@@ -28,9 +27,24 @@ angular.module('POIapp')
             }
         }
 
-        $scope.open = function () {
-            $rootScope.$broadcast('poi', 1);
+        $scope.forgotPwd = function(){
+            $location.path('/forgot');
+        }
 
+        $scope.open = function (poi) {
+            console.log(poi)
+            $scope.poi = {};
+            $scope.poi.id = poi.id;
+            $scope.poi.name = poi.name;
+            $scope.poi.category = poi.category;
+            poiInfoService.reterivePOI(poi.id).then(function(result){
+                poi_info = result.data;
+                $scope.poi.description = poi_info.POI[0].description || "";
+                $scope.poi.rating = poi_info.POI[0].rating;
+                $scope.poi.views = poi_info.POI[0].views;
+                $scope.poi.reviews = poi_info.reviews || "";
+                $rootScope.poi = $scope.poi;
+            });
         }
 
 
@@ -63,6 +77,7 @@ angular.module('POIapp')
                             $scope.user.country = result.data.user.country;
                             $scope.user.email = result.data.user.email;
                             console.log($scope.user);
+                            $window.localStorage.setItem('username', result.data.user.username);
                             $rootScope.login = true;
                             $rootScope.user = $scope.user;
                             $location.path('/home');
@@ -75,22 +90,3 @@ angular.module('POIapp')
                 });
         }
     }])
-
-// Please note that $modalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
-
-angular.module('POIapp').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-
-    $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
-
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.selected.item);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});

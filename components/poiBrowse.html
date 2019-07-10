@@ -1,0 +1,92 @@
+<div class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-12 col-md-10">
+            <!-- Hero Search Form -->
+            <div class="hero-search-form">
+                <!-- Tabs Content -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
+                        aria-labelledby="nav-places-tab">
+                        <h6>What are you looking for?</h6>
+                        <form class="card card-sm">
+                            <div class="card-body row no-gutters align-items-center">
+                                <div class="col">
+                                    <input ng-model="inputSearch" ng-change="filterBySearch()"
+                                        class="form-control form-control-lg form-control-borderless" type="search"
+                                        placeholder="Search...">
+                                </div>
+                                <!--end of col-->
+                                <div class="col-auto">
+                                    <button class="btn btn-lg btn-success" ng-click="filterBySearch()" type="submit">Search</button>
+                                </div>
+                                <!--end of col-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+
+    <!-- ***** Catagory Area Start ***** -->
+    <div class="dorne-catagory-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="all-catagories">
+                        <div class="row">
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md" ng-repeat="category in categories">
+                                <div class="single-catagory-area wow fadeInUpBig">
+                                    <div class="catagory-content">
+                                        <img src="img/core-img/{{category}}.png" style="width:50px" alt="">
+                                        <a ng-click="filterByCat(category)">
+                                            <h6>{{category}}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Catagory Area End ***** -->
+
+    <!-- ***** Features Destinations Area Start ***** -->
+    <div class="dorne-features-destinations-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <span></span>
+                        <h4>POI's</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-6 col-md-6" ng-repeat="poi in pois" ng-if="$even">
+                    <div class="view overlay z-depth-1-half">
+                        <img ng-src={{poi.image_path}} class="img-fluid">
+                        <button type="button" ng-click="open(poi)" class="btn btn-sm btn-outline-secondary"
+                            data-toggle="modal" data-target="#myModal">View</button>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">{{poi.name}}</h4>
+                </div>
+                <!--Grid column-->
+                <div class="col-md-6 col-md-6" ng-repeat="poi in pois" ng-if="$odd">
+                    <div class="view overlay z-depth-1-half">
+                        <img ng-src={{poi.image_path}} class="img-fluid">
+                        <button type="button" ng-click="open(poi)" class="btn btn-sm btn-outline-secondary"
+                            data-toggle="modal" data-target="#myModal">View</button>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">{{poi.name}}</h4>
+                </div>
+                <!--Grid column-->
+            </div>
+        </div>
+    </div>

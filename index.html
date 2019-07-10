@@ -17,6 +17,10 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
 </head>
 
 <body ng-app="POIapp" ng-controller="indexController">
@@ -26,7 +30,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
       <div class="container">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand">
+        <img class="logo" src="img/Go_tlv_logo-9.png" style="height: auto; width: 60px" >
+        </a>
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
           aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,20 +43,30 @@
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#!home">Home
+              <a class="nav-link" href="#!">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#!register">Register</a>
+              <a class="nav-link" href="#!register" ng-hide="login">Register</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#!poi">POI</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#!favorites" ng-show="login">Favorites ({{favCounter}})</a>
+                </li>
+            <li class="nav-item">
               <a class="nav-link" href="#!about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ng-click="logout()" ng-show="login">Logout</a>
             </li>
           </ul>
           <!-- Links -->
           <div class="greetinguser my-0">
-            <label class="mr-sm-2" ng-init="user.loggedInUser='Guest'">{{user.loggedInUser}}</label>
+            <label class="mr-sm-2" ng-if="login"> Hello {{user.loggedInUser}}</label>
+            <label class="mr-sm-2" ng-if="!login"> Hello Guest </label>
           </div>
         </div>
         <!-- Collapsible content -->
@@ -79,11 +95,15 @@
   <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
   <script src="node_modules/angular-css/angular-css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.8/angular-sanitize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
   <script src="js/select2.min.js"></script>
+
+  <!--Main-->
   <script src="app.js"></script>
+  
+  <!--Services-->
+  <script src="services/authentication.js"></script>
+  <script src="services/favoritesService.js"></script>
+  
 
   <!--Controllers-->
   <script src="indexController.js"></script>
@@ -91,7 +111,9 @@
   <script src="components/registerController.js"></script>
   <script src="components/homeController.js"></script>
   <script src="components/modalContentCtrl.js"></script>
-  <!--Services-->
+  <script src="components/poiBrowseController.js"></script>
+  <script src="components/favoritesController.js"></script>
+  <script src="components/forgotPwdController.js"></script>
 
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>

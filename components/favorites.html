@@ -1,0 +1,27 @@
+<div id="explore" class="seperateDiv">
+    <!-- Heading -->
+    <!--Grid row-->
+    <h2 class="mb-5 font-weight-bold">Favorites</h2>
+    <div class="sortingDiv">
+        <label>Sort by:</label>
+            <select class="js-example-basic-single" ng-change="changeSort()" ng-model="sortBy" style="width:50%" name="sort">
+                <option></option>
+                <option>Categories</option>
+                <option>Ranking</option>
+            </select>
+        </div>
+        <button type="button" ng-click="saveUserOrder()" class="btn btn-outline-primary">Save Order</button>
+    <div class="row" ng-repeat="poi in displayFavorites" style="margin-top:15px">
+        <!--Grid column-->
+        <div class="col-md-6 col-md-6">
+            <div class="view overlay z-depth-1-half">
+                <img ng-src={{poi.image_path}} class="img-fluid">
+                <button type="button" ng-click="open(poi)" class="btn btn-sm btn-outline-secondary"
+                    data-toggle="modal" data-target="#myModal">View</button>
+                    Sorting Order:
+                <input type="number" ng-change="changeSortingOrder()" pattern="^[1-9][0-9]{0,2}$" ng-model=poi.sortingOrder></input>
+            </div>
+            <h4 class="my-4 font-weight-bold">{{poi.name}}</h4>
+        </div>
+    </div>
+</div>

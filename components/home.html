@@ -1,3 +1,53 @@
-<div>
-    <h1>hello user, welcome</h1>
+<!--/.Mask-->
+<!--Section: recommendedByCategory-->
+<div id="explore" class="seperateDiv">
+    <!-- Heading -->
+    <!--Grid row-->
+    <h2 class="mb-5 font-weight-bold">Recommended POI</h2>
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-md-6 col-md-6">
+            <h4>{{recommendedPOI[0].category}}</h4>
+            <div class="view overlay z-depth-1-half">
+                <img ng-src={{recommendedPOI[0].image_path}} class="img-fluid">
+                <button type="button" ng-click="open(recommendedPOI[0])" class="btn btn-sm btn-outline-secondary"
+                    data-toggle="modal" data-target="#myModal">View</button>
+            </div>
+            <h4 class="my-4 font-weight-bold">{{recommendedPOI[0].name}}</h4>
+        </div>
+        <!--Grid column-->
+        <div class="col-md-6 col-md-6">
+            <h4>{{recommendedPOI[1].category}}</h4>
+            <div class="view overlay z-depth-1-half">
+                <img ng-src={{recommendedPOI[1].image_path}} class="img-fluid">
+                <button type="button" ng-click="open(recommendedPOI[1])" class="btn btn-sm btn-outline-secondary"
+                    data-toggle="modal" data-target="#myModal">View</button>
+            </div>
+            <h4 class="my-4 font-weight-bold">{{recommendedPOI[1].name}}</h4>
+        </div>
+        <!--Grid column-->
+    </div>
+    <h2 class="mb-5 font-weight-bold">Favorites POI</h2>
+    <div class="row">
+        <h4 ng-if="favPOI.length == 0">Please add POI to your favorites in order to see them here.</h4>
+        <!--Grid column-->
+        <div class="col-md-6 col-md-6" ng-if="favPOI.length >= 1">
+            <div class="view overlay z-depth-1-half">
+                <img ng-src={{favPOI[0].image_path}} class="img-fluid">
+                <button type="button" ng-click="open(favPOI[0])" class="btn btn-sm btn-outline-secondary"
+                    data-toggle="modal" data-target="#myModal">View</button>
+            </div>
+            <h4 class="my-4 font-weight-bold">{{favPOI[0].name}}</h4>
+        </div>
+        <!--Grid column-->
+        <div class="col-md-6 col-md-6" ng-if="favPOI >= 2">
+            <div class="view overlay z-depth-1-half">
+                <img ng-src={{favPOI[1].image_path}} class="img-fluid">
+                <button type="button" ng-click="open(favPOI[1])" class="btn btn-sm btn-outline-secondary"
+                    data-toggle="modal" data-target="#myModal">View</button>
+            </div>
+            <h4 class="my-4 font-weight-bold">{{favPOI[1].name}}</h4>
+        </div>
+        <!--Grid column-->
+    </div>
 </div>

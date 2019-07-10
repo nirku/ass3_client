@@ -1,0 +1,30 @@
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo seperateDiv">
+    <div class="wrapper wrapper--w680">
+        <h2 class="title">Forgot Passowrd</h2>
+        <div class="card card-1 seperateDiv">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <input type="text" ng-model="username" id="username" placeholder="Username" name="username">
+                <button type="button" ng-click="getQuestions()" class="btn btn-outline-info btn-sm">Submit</button>
+            </div>
+        </div>
+        <div class="card card-1 seperateDiv" ng-if="show">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <label id="question1">{{questions[0]}}?</label>
+                <br>
+                <br>
+                <input type="text" id="answer1" ng-model="answers[0]" placeholder="Answer" name="answer1" style="width: 50%">
+                <br>
+                <br>
+                <label id="question2">{{questions[1]}}?</label>
+                <br>
+                <br>
+                <input type="text" ng-model="answers[1]" id="answer2" placeholder="Answer" name="answer2" style="width: 50%">
+                <br>
+                <br>
+                <button type="button" ng-click="getPassword()" class="btn btn-outline-info">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
